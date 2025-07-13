@@ -1,0 +1,38 @@
+def get_number(prompt):
+    while True:
+        try:
+            return float(input(prompt))
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+
+def get_operator():
+    ops = ['+', '-', '*', '/']
+    while True:
+        op = input("Choose operation (+, -, *, /): ").strip()
+        if op in ops:
+            return op
+        print("Invalid operator. Try again.")
+
+def calculate(a, b, op):
+    if op == '+':
+        return a + b
+    elif op == '-':
+        return a - b
+    elif op == '*':
+        return a * b
+    elif op == '/':
+        if b != 0:
+            return a / b
+        else:
+            return "Error: Division by zero."
+
+def main():
+    print("Simple Python Calculator")
+    a = get_number("Enter first number: ")
+    b = get_number("Enter second number: ")
+    op = get_operator()
+    result = calculate(a, b, op)
+    print(f"\nResult: {a} {op} {b} = {result}")
+
+if __name__ == "__main__":
+    main()
